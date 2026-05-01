@@ -640,6 +640,15 @@ footer p{font-size:0.76rem;color:#bbb}
   <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
 </div>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-prev" onclick="event.stopPropagation();moveLightbox(-1)">‹</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" onclick="event.stopPropagation();moveLightbox(1)">›</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
 <!-- PDF Modal -->
 <div class="pdf-modal" id="pdfModal" onclick="closePDF()">
   <div class="pdf-modal-box" onclick="event.stopPropagation()">
@@ -722,3 +731,4 @@ document.addEventListener('keydown', e => {
 </script>
 </body>
 </html>
+l
