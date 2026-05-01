@@ -472,27 +472,7 @@ footer p{font-size:0.76rem;color:#bbb}
     </div>
   </div>
   <div class="detail-body">
-    <div class="masonry" id="designGallery">
-  <div class="masonry-item" onclick="openLightbox(0)"><img loading="lazy" src="images/design/1.png"></div>
-  <div class="masonry-item" onclick="openLightbox(1)"><img loading="lazy" src="images/design/2.png"></div>
-  <div class="masonry-item" onclick="openLightbox(2)"><img loading="lazy" src="images/design/3.png"></div>
-  <div class="masonry-item" onclick="openLightbox(3)"><img loading="lazy" src="images/design/4.png"></div>
-  <div class="masonry-item" onclick="openLightbox(4)"><img loading="lazy" src="images/design/5.png"></div>
-  <div class="masonry-item" onclick="openLightbox(5)"><img loading="lazy" src="images/design/6.png"></div>
-  <div class="masonry-item" onclick="openLightbox(6)"><img loading="lazy" src="images/design/7.png"></div>
-  <div class="masonry-item" onclick="openLightbox(7)"><img loading="lazy" src="images/design/8.png"></div>
-  <div class="masonry-item" onclick="openLightbox(8)"><img loading="lazy" src="images/design/9.png"></div>
-  <div class="masonry-item" onclick="openLightbox(9)"><img loading="lazy" src="images/design/10.png"></div>
-  <div class="masonry-item" onclick="openLightbox(10)"><img loading="lazy" src="images/design/11.png"></div>
-  <div class="masonry-item" onclick="openLightbox(11)"><img loading="lazy" src="images/design/12.png"></div>
-  <div class="masonry-item" onclick="openLightbox(12)"><img loading="lazy" src="images/design/13.png"></div>
-  <div class="masonry-item" onclick="openLightbox(13)"><img loading="lazy" src="images/design/14.png"></div>
-  <div class="masonry-item" onclick="openLightbox(14)"><img loading="lazy" src="images/design/15.png"></div>
-  <div class="masonry-item" onclick="openLightbox(15)"><img loading="lazy" src="images/design/16.png"></div>
-  <div class="masonry-item" onclick="openLightbox(16)"><img loading="lazy" src="images/design/17.png"></div>
-  <div class="masonry-item" onclick="openLightbox(17)"><img loading="lazy" src="images/design/18.png"></div>
-  <div class="masonry-item" onclick="openLightbox(18)"><img loading="lazy" src="images/design/19.png"></div>
-</div>
+   <div class="masonry" id="designGallery"></div>
   </div>
   <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
 </div>
@@ -681,9 +661,22 @@ function showPage(id) {
 function showDetail(cat) {
   showPage(cat);
 }
-const designImages = Array.from({length: 19}, (_, i) => `images/design/${i+1}.png`);
 
+const designImages = Array.from({length: 19}, (_, i) => `images/design/${i+1}.png`);
 let currentLightbox = 0;
+
+// Generate thumbnail
+const gallery = document.getElementById('designGallery');
+designImages.forEach((src, i) => {
+  const div = document.createElement('div');
+  div.className = 'masonry-item';
+  div.onclick = () => openLightbox(i);
+  const img = document.createElement('img');
+  img.loading = 'lazy';
+  img.src = src;
+  div.appendChild(img);
+  gallery.appendChild(div);
+});
 
 function openLightbox(i){
   currentLightbox = i;
@@ -705,6 +698,7 @@ document.addEventListener('keydown', e => {
   if(e.key === 'ArrowLeft') moveLightbox(-1);
   if(e.key === 'Escape') closeLightbox();
 });
+
       // Generate tombol PDF otomatis
       document.querySelectorAll('.proj-media[data-pdf]').forEach(media => {
         const btn = document.createElement('button');
