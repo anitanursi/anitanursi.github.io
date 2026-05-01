@@ -93,6 +93,15 @@ section{padding:4rem 3rem}
 .pdf-modal-box{position:relative;width:90%;max-width:700px;height:90vh;background:#fff;border-radius:12px;overflow:auto}
 .pdf-close-btn{position:absolute;top:10px;right:12px;z-index:10;background:#fff;border:1px solid #ddd;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:0.85rem}
 
+#page-uiux .proj-grid {
+  grid-template-columns: 1fr;
+  max-width: 860px;
+}
+
+#page-uiux .proj-media {
+  aspect-ratio: 16/9; /* atau bisa 4/3 untuk lebih tinggi */
+}
+
 /* ── SOCIAL MEDIA ── */
 /* ── MASONRY GALLERY ── */
 .masonry{columns:3;column-gap:12px;padding:0}
@@ -490,20 +499,69 @@ footer p{font-size:0.76rem;color:#bbb}
     </div>
   </div>
   <div class="detail-body">
-    <div class="proj-grid">
+    <div style="display:flex;flex-direction:column;gap:2rem;max-width:900px">
 
+      <!-- CARD 1: SmartChef -->
       <div class="proj-card">
-        <div class="proj-media">
-          <!-- REPLACE src WITH YOUR FIGMA SCREENSHOT URL -->
-          <div class="proj-media-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Add Figma screenshot</span>
-          </div>
+        <div style="width:100%;height:520px;border-bottom:1px solid #ebebeb;overflow:hidden">
+          <iframe
+            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/zzAxt83guVdX0MXKtEAT30/SmartChef?node-id=156-0"
+            allowfullscreen
+            style="width:100%;height:100%;border:none">
+          </iframe>
         </div>
         <div class="proj-body">
-          <div class="proj-title">VocabLearn App – UI/UX Design</div>
-          <div class="proj-desc">Designed the full user interface for a gamified mobile vocabulary app, including onboarding flows, progress tracking screens, and quiz interaction patterns using Figma.</div>
-          <div class="proj-tags"><span class="ptag">Figma</span><span class="ptag">Mobile UI</span><span class="ptag">Gamification</span><span class="ptag">Prototyping</span></div>
+          <div class="proj-title">SmartChef</div>
+          <div class="proj-desc">Mobile app UI for a smart cooking assistant. Includes recipe discovery, step-by-step cooking guides, and personalized meal planning flows designed in Figma.</div>
+          <div class="proj-tags"><span class="ptag">Figma</span><span class="ptag">Mobile UI</span><span class="ptag">Food Tech</span><span class="ptag">Prototyping</span></div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Vocabutech -->
+      <div class="proj-card">
+        <div style="width:100%;height:520px;border-bottom:1px solid #ebebeb;overflow:hidden">
+          <iframe
+            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/whh7wv8kZslk1eu6fRoE3R/Untitled?node-id=0-1"
+            allowfullscreen
+            style="width:100%;height:100%;border:none">
+          </iframe>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Vocabutech</div>
+          <div class="proj-desc">UI/UX design for a vocabulary learning application tailored for engineering and technology contexts, featuring modern card-based learning interactions.</div>
+          <div class="proj-tags"><span class="ptag">Figma</span><span class="ptag">Mobile UI</span><span class="ptag">EdTech</span><span class="ptag">Prototyping</span></div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Smart Home -->
+      <div class="proj-card">
+        <div style="width:100%;height:520px;border-bottom:1px solid #ebebeb;overflow:hidden">
+          <iframe
+            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/QGrj0zb5PS62Bs6gn9Ox2d/Smart-Home--Community-?node-id=0-1"
+            allowfullscreen
+            style="width:100%;height:100%;border:none">
+          </iframe>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Smart Home</div>
+          <div class="proj-desc">Community-focused smart home control app design. Dashboard for managing connected devices, automation triggers, and real-time monitoring in a clean minimalist style.</div>
+          <div class="proj-tags"><span class="ptag">Figma</span><span class="ptag">Mobile UI</span><span class="ptag">IoT</span><span class="ptag">Dashboard</span></div>
+        </div>
+      </div>
+
+      <!-- CARD 4: Vocabulary App V1 -->
+      <div class="proj-card">
+        <div style="width:100%;height:520px;border-bottom:1px solid #ebebeb;overflow:hidden">
+          <iframe
+            src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/zFIVi8AfQ4xw1fnbtJG8fX/Untitled?node-id=0-1"
+            allowfullscreen
+            style="width:100%;height:100%;border:none">
+          </iframe>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Vocabulary App V1</div>
+          <div class="proj-desc">First iteration of the VocabLearn app UI. Early design exploration including onboarding screens, quiz flows, and gamification elements before the final thesis version.</div>
+          <div class="proj-tags"><span class="ptag">Figma</span><span class="ptag">Mobile UI</span><span class="ptag">Gamification</span><span class="ptag">V1 Prototype</span></div>
         </div>
       </div>
 
