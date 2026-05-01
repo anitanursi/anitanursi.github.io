@@ -93,6 +93,27 @@ section{padding:4rem 3rem}
 .pdf-modal-box{position:relative;width:90%;max-width:700px;height:90vh;background:#fff;border-radius:12px;overflow:auto}
 .pdf-close-btn{position:absolute;top:10px;right:12px;z-index:10;background:#fff;border:1px solid #ddd;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:0.85rem}
 
+/* ── SOCIAL MEDIA ── */
+/* ── MASONRY GALLERY ── */
+.masonry{columns:3;column-gap:12px;padding:0}
+.masonry-item{break-inside:avoid;margin-bottom:12px;border-radius:10px;overflow:hidden;cursor:pointer;position:relative}
+.masonry-item img{width:100%;height:auto;display:block;transition:transform 0.2s}
+.masonry-item:hover img{transform:scale(1.03)}
+@media(max-width:900px){.masonry{columns:2}}
+@media(max-width:500px){.masonry{columns:1}}
+
+/* ── LIGHTBOX ── */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center}
+.lightbox.active{display:flex}
+.lightbox-img{max-width:90vw;max-height:88vh;border-radius:8px;object-fit:contain}
+.lightbox-close{position:fixed;top:16px;right:20px;background:none;border:none;color:#fff;font-size:1.6rem;cursor:pointer;z-index:10000;opacity:0.7}
+.lightbox-close:hover{opacity:1}
+.lightbox-prev,.lightbox-next{position:fixed;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;padding:1rem;opacity:0.5;z-index:10000}
+.lightbox-prev:hover,.lightbox-next:hover{opacity:1}
+.lightbox-prev{left:8px}
+.lightbox-next{right:8px}
+.lightbox-counter{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);color:#fff;font-size:0.78rem;opacity:0.5}
+
 /* ── ADD CARD (placeholder for user) ── */
 .add-card{border:1.5px dashed #e0e0e0;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:220px;color:#ccc;font-size:0.82rem;cursor:pointer;transition:all 0.15s}
 .add-card:hover{border-color:#bbb;color:#999}
@@ -426,7 +447,7 @@ footer p{font-size:0.76rem;color:#bbb}
           <img src="images/telus.png" style="width:100%;height:100%;object-fit:cover">
         </div>
         <div class="proj-body">
-          <div class="proj-title">Search Evaluation – Telus / Microsoft</div>
+          <div class="proj-title">Search Evaluation: Telus/Microsoft</div>
           <div class="proj-desc">Search evaluation and data annotation to test and refine Microsoft ML models. Included query analysis, image labeling, and text/audio annotation.</div>
           <div class="proj-tags"><span class="ptag">Search Rating</span><span class="ptag">Audio Annotation</span><span class="ptag">Microsoft AI</span></div>
         </div>
@@ -437,6 +458,7 @@ footer p{font-size:0.76rem;color:#bbb}
   <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
 </div>
 
+<!-- SOCIAL MEDIA DESIGN -->
 <!-- SOCIAL MEDIA DESIGN -->
 <div id="page-design" class="page">
   <div class="detail-header">
@@ -450,38 +472,27 @@ footer p{font-size:0.76rem;color:#bbb}
     </div>
   </div>
   <div class="detail-body">
-    <div class="proj-grid">
-
-      <div class="proj-card">
-        <div class="proj-media">
-          <!-- REPLACE src WITH YOUR DESIGN IMAGE URL e.g. https://i.imgur.com/xxx.jpg -->
-          <div class="proj-media-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Add design screenshot</span>
-          </div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-title">Infokom Division – Social Media Content</div>
-          <div class="proj-desc">Created visually appealing presentations, infographics, and multimedia content for social media. Managed posting schedules and documented activities through photography.</div>
-          <div class="proj-tags"><span class="ptag">Canva</span><span class="ptag">Infographic</span><span class="ptag">Content Planning</span><span class="ptag">Photography</span></div>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-media">
-          <div class="proj-media-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Add design screenshot</span>
-          </div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-title">Tabihita Project – Education Dept. Communications</div>
-          <div class="proj-desc">Managed administrative communications and crafted visual materials to support the department's social media presence and outreach during community service programs.</div>
-          <div class="proj-tags"><span class="ptag">Canva</span><span class="ptag">Event Documentation</span><span class="ptag">Communication</span></div>
-        </div>
-      </div>
-
-    </div>
+    <div class="masonry" id="designGallery">
+  <div class="masonry-item" onclick="openLightbox(0)"><img loading="lazy" src="images/design/1.png"></div>
+  <div class="masonry-item" onclick="openLightbox(1)"><img loading="lazy" src="images/design/2.png"></div>
+  <div class="masonry-item" onclick="openLightbox(2)"><img loading="lazy" src="images/design/3.png"></div>
+  <div class="masonry-item" onclick="openLightbox(3)"><img loading="lazy" src="images/design/4.png"></div>
+  <div class="masonry-item" onclick="openLightbox(4)"><img loading="lazy" src="images/design/5.png"></div>
+  <div class="masonry-item" onclick="openLightbox(5)"><img loading="lazy" src="images/design/6.png"></div>
+  <div class="masonry-item" onclick="openLightbox(6)"><img loading="lazy" src="images/design/7.png"></div>
+  <div class="masonry-item" onclick="openLightbox(7)"><img loading="lazy" src="images/design/8.png"></div>
+  <div class="masonry-item" onclick="openLightbox(8)"><img loading="lazy" src="images/design/9.png"></div>
+  <div class="masonry-item" onclick="openLightbox(9)"><img loading="lazy" src="images/design/10.png"></div>
+  <div class="masonry-item" onclick="openLightbox(10)"><img loading="lazy" src="images/design/11.png"></div>
+  <div class="masonry-item" onclick="openLightbox(11)"><img loading="lazy" src="images/design/12.png"></div>
+  <div class="masonry-item" onclick="openLightbox(12)"><img loading="lazy" src="images/design/13.png"></div>
+  <div class="masonry-item" onclick="openLightbox(13)"><img loading="lazy" src="images/design/14.png"></div>
+  <div class="masonry-item" onclick="openLightbox(14)"><img loading="lazy" src="images/design/15.png"></div>
+  <div class="masonry-item" onclick="openLightbox(15)"><img loading="lazy" src="images/design/16.png"></div>
+  <div class="masonry-item" onclick="openLightbox(16)"><img loading="lazy" src="images/design/17.png"></div>
+  <div class="masonry-item" onclick="openLightbox(17)"><img loading="lazy" src="images/design/18.png"></div>
+  <div class="masonry-item" onclick="openLightbox(18)"><img loading="lazy" src="images/design/19.png"></div>
+</div>
   </div>
   <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
 </div>
@@ -670,6 +681,30 @@ function showPage(id) {
 function showDetail(cat) {
   showPage(cat);
 }
+const designImages = Array.from({length: 19}, (_, i) => `images/design/${i+1}.png`);
+
+let currentLightbox = 0;
+
+function openLightbox(i){
+  currentLightbox = i;
+  document.getElementById('lightboxImg').src = designImages[i];
+  document.getElementById('lightboxCounter').textContent = (i+1) + ' / ' + designImages.length;
+  document.getElementById('lightbox').classList.add('active');
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('active');
+  document.getElementById('lightboxImg').src = '';
+}
+function moveLightbox(dir){
+  currentLightbox = (currentLightbox + dir + designImages.length) % designImages.length;
+  openLightbox(currentLightbox);
+}
+document.addEventListener('keydown', e => {
+  if(!document.getElementById('lightbox').classList.contains('active')) return;
+  if(e.key === 'ArrowRight') moveLightbox(1);
+  if(e.key === 'ArrowLeft') moveLightbox(-1);
+  if(e.key === 'Escape') closeLightbox();
+});
       // Generate tombol PDF otomatis
       document.querySelectorAll('.proj-media[data-pdf]').forEach(media => {
         const btn = document.createElement('button');
