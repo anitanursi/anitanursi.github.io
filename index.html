@@ -177,7 +177,7 @@ footer p{font-size:0.76rem;color:#bbb}
     <div class="hero-cta">
       <a class="btn btn-solid" href="mailto:anitanursy@gmail.com">Get in Touch</a>
       <!-- <a class="btn btn-outline" href="https://anitanursi.github.io/developer-portfolio/" target="_blank">GitHub Portfolio ↗</a> -->
-      <a class="btn btn-solid" src="pdf/cv.pdf">Curriculum Vitae</a>
+     <a class="btn btn-solid" href="pdf/cv.pdf" download>Curriculum Vitae</a>
     </div>
   </div>
 
@@ -613,16 +613,9 @@ footer p{font-size:0.76rem;color:#bbb}
           <!-- <a class="proj-pdf-link" href="YOUR_CERT_PDF" target="_blank">View Certificate PDF</a> -->
         </div>
       </div>
-
-    <div class="proj-card">
-  <div class="proj-media" style="position:relative">
+      <div class="proj-card">
+  <div class="proj-media" data-pdf="files/mtcna.pdf">
     <img src="images/mtcna.jpeg" style="width:100%;height:100%;object-fit:cover">
-    <button class="pdf-zoom-btn" onclick="openPDF('files/mtcna.pdf')">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-    <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
-  </svg>
-</button>
   </div>
   <div class="proj-body">
     <div class="proj-title">MikroTik Certified Network Associate (MTCNA)</div>
@@ -630,7 +623,6 @@ footer p{font-size:0.76rem;color:#bbb}
     <div class="proj-tags"><span class="ptag">MikroTik</span><span class="ptag">Networking</span><span class="ptag">MTCNA · 2023</span></div>
   </div>
 </div>
-
       <div class="proj-card">
         <div class="proj-media">
           <div class="proj-media-placeholder">
@@ -646,8 +638,8 @@ footer p{font-size:0.76rem;color:#bbb}
       </div>
 
       <div class="proj-card">
-        <div class="proj-media" data-pdf="pdf/mtcna.pdf">
-  <img src="pdf/mtcna.pdf" style="width:100%;height:100%;object-fit:cover">
+        <div class="proj-media" data-pdf="pdf/java.pdf">
+  <img src="pdf/java.pdf" style="width:100%;height:100%;object-fit:cover">
 </div>
         <div class="proj-body">
           <div class="proj-title">Java Fundamental & Java Programming</div>
@@ -659,6 +651,14 @@ footer p{font-size:0.76rem;color:#bbb}
     </div>
   </div>
   <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
+</div>
+
+<!-- PDF Modal -->
+<div class="pdf-modal" id="pdfModal" onclick="closePDF()">
+  <div class="pdf-modal-box" onclick="event.stopPropagation()">
+    <button class="pdf-close-btn" onclick="closePDF()">✕</button>
+    <iframe id="pdfFrame" src="" width="100%" height="100%" style="border:none"></iframe>
+  </div>
 </div>
 
 
