@@ -686,9 +686,10 @@ function showDetail(cat) {
 
       // Modal functions
       function openPDF(src){
-        document.getElementById('pdfFrame').src = src;
-        document.getElementById('pdfModal').classList.add('active');
-      }
+  const fullUrl = window.location.origin + '/' + src;
+  document.getElementById('pdfFrame').src = 'https://docs.google.com/viewer?url=' + encodeURIComponent(fullUrl) + '&embedded=true';
+  document.getElementById('pdfModal').classList.add('active');
+}
       function closePDF(){
         document.getElementById('pdfModal').classList.remove('active');
         document.getElementById('pdfFrame').src = '';
