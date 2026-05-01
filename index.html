@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anita Nursi Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#fff;color:#1a1a1a;font-size:15px;line-height:1.6;min-height:100vh}
+
+/* ── NAV ── */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;border-bottom:1px solid #ebebeb;background:#fff;position:sticky;top:0;z-index:100}
+.nav-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:#1a1a1a;cursor:pointer}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{font-size:0.78rem;color:#999;letter-spacing:0.07em;text-transform:uppercase;cursor:pointer;transition:color 0.15s;text-decoration:none}
+.nav-links a:hover{color:#1a1a1a}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none;animation:fadeIn 0.25s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── HERO ── */
+.hero{padding:5rem 3rem 3.5rem;max-width:780px}
+.hero-eyebrow{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:#aaa;margin-bottom:1.25rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:400;line-height:1.08;color:#1a1a1a;margin-bottom:1.25rem}
+.hero h1 em{font-style:italic;color:#666}
+.hero-bio{font-size:0.92rem;color:#666;max-width:540px;line-height:1.9;margin-bottom:2rem}
+.hero-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:2.25rem}
+.chip{font-size:0.72rem;padding:5px 13px;border:1px solid #e4e4e4;border-radius:100px;color:#777;background:#fafafa}
+.hero-cta{display:flex;gap:0.75rem;flex-wrap:wrap}
+.btn{font-size:0.8rem;padding:10px 22px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:all 0.15s;text-decoration:none;display:inline-block}
+.btn-solid{background:#1a1a1a;color:#fff;border:1px solid #1a1a1a}
+.btn-solid:hover{background:#333}
+.btn-outline{background:#fff;color:#1a1a1a;border:1px solid #d0d0d0}
+.btn-outline:hover{border-color:#1a1a1a}
+
+/* ── DIVIDER ── */
+hr{border:none;border-top:1px solid #ebebeb}
+
+/* ── SECTION BASE ── */
+section{padding:4rem 3rem}
+.sec-eyebrow{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#bbb;margin-bottom:0.5rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;color:#1a1a1a;margin-bottom:2.5rem;line-height:1.2}
+
+/* ── STATS ── */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1px;background:#ebebeb;border:1px solid #ebebeb;border-radius:14px;overflow:hidden;margin-bottom:3rem}
+.stat{background:#fff;padding:1.5rem;text-align:center}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:400;color:#1a1a1a}
+.stat-l{font-size:0.74rem;color:#aaa;margin-top:3px}
+
+/* ── CATEGORY GRID (HOME) ── */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
+.cat-card{border:1px solid #ebebeb;border-radius:16px;padding:2rem 1.75rem;cursor:pointer;transition:all 0.2s;background:#fff;display:flex;flex-direction:column;gap:1rem}
+.cat-card:hover{border-color:#bbb;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.cat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.cat-name{font-size:1.05rem;font-weight:500;color:#1a1a1a}
+.cat-count{font-size:0.78rem;color:#aaa;margin-top:2px}
+.cat-arrow{font-size:1.1rem;color:#ccc;margin-top:auto;align-self:flex-end;transition:transform 0.15s}
+.cat-card:hover .cat-arrow{transform:translateX(4px);color:#999}
+
+/* ── DETAIL PAGE ── */
+.detail-header{padding:2.5rem 3rem 2rem;border-bottom:1px solid #ebebeb;display:flex;align-items:center;gap:1rem}
+.back-btn{display:flex;align-items:center;gap:6px;font-size:0.8rem;color:#999;cursor:pointer;transition:color 0.15s;background:none;border:none;font-family:'DM Sans',sans-serif;padding:0}
+.back-btn:hover{color:#1a1a1a}
+.detail-header-info{flex:1}
+.detail-cat-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:400;color:#1a1a1a}
+.detail-cat-sub{font-size:0.8rem;color:#aaa;margin-top:2px}
+
+.detail-body{padding:2.5rem 3rem}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+
+/* ── PROJECT CARD ── */
+.proj-card{border:1px solid #ebebeb;border-radius:14px;overflow:hidden;background:#fff;transition:border-color 0.2s,transform 0.15s}
+.proj-card:hover{border-color:#bbb;transform:translateY(-2px)}
+.proj-media{width:100%;aspect-ratio:16/9;object-fit:cover;background:#f5f5f5;display:flex;align-items:center;justify-content:center;color:#ccc;font-size:0.8rem;border-bottom:1px solid #ebebeb;overflow:hidden}
+.proj-media img,.proj-media iframe{width:100%;height:100%;object-fit:cover}
+.proj-media-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;background:#f8f8f8;color:#bbb}
+.proj-media-placeholder svg{opacity:0.4}
+.proj-body{padding:1.25rem}
+.proj-title{font-size:0.95rem;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+.proj-desc{font-size:0.8rem;color:#777;line-height:1.75;margin-bottom:10px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px}
+.ptag{font-size:0.68rem;padding:3px 9px;border-radius:100px;background:#f5f5f5;color:#888;border:1px solid #eee}
+.proj-pdf-link{display:inline-flex;align-items:center;gap:5px;font-size:0.75rem;color:#555;text-decoration:none;border:1px solid #ddd;padding:4px 10px;border-radius:6px;margin-top:8px;transition:border-color 0.15s}
+.proj-pdf-link:hover{border-color:#aaa;color:#1a1a1a}
+
+/* ── ADD CARD (placeholder for user) ── */
+.add-card{border:1.5px dashed #e0e0e0;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:220px;color:#ccc;font-size:0.82rem;cursor:pointer;transition:all 0.15s}
+.add-card:hover{border-color:#bbb;color:#999}
+.add-card svg{opacity:0.5}
+
+/* ── EXPERIENCE ── */
+.exp-list{display:flex;flex-direction:column}
+.exp-item{padding:1.5rem 0;border-bottom:1px solid #f0f0f0;display:grid;grid-template-columns:170px 1fr;gap:2rem}
+.exp-item:first-child{border-top:1px solid #f0f0f0}
+.exp-date{font-size:0.76rem;color:#bbb;padding-top:3px}
+.exp-role{font-size:0.92rem;font-weight:500;color:#1a1a1a;margin-bottom:2px}
+.exp-co{font-size:0.78rem;color:#aaa;margin-bottom:7px}
+.exp-desc{font-size:0.8rem;color:#666;line-height:1.8}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2rem}
+.sg-title{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:#bbb;margin-bottom:0.75rem}
+.sp{font-size:0.82rem;color:#555;padding:6px 0;border-bottom:1px solid #f5f5f5}
+
+/* ── CERTS ── */
+.cert-list{display:flex;flex-direction:column;gap:1px;border:1px solid #ebebeb;border-radius:14px;overflow:hidden}
+.cert-item{background:#fff;padding:1rem 1.25rem;display:flex;align-items:center;gap:1rem;border-bottom:1px solid #f5f5f5}
+.cert-item:last-child{border-bottom:none}
+.cert-yr{font-size:0.7rem;color:#bbb;min-width:48px}
+.cert-name{font-size:0.86rem;font-weight:500;color:#1a1a1a}
+.cert-org{font-size:0.75rem;color:#aaa}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}
+.contact-card{border:1px solid #ebebeb;border-radius:12px;padding:1.25rem;transition:border-color 0.15s;text-decoration:none;color:inherit;display:block}
+.contact-card:hover{border-color:#aaa}
+.cc-lbl{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:#bbb;margin-bottom:4px}
+.cc-val{font-size:0.86rem;font-weight:500;color:#1a1a1a}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid #ebebeb;padding:1.75rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer p{font-size:0.76rem;color:#bbb}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  nav{padding:1rem 1.25rem}
+  .nav-links{gap:1rem}
+  .hero,section,.detail-header,.detail-body{padding-left:1.25rem;padding-right:1.25rem}
+  .hero{padding-top:3rem}
+  section{padding-top:3rem;padding-bottom:3rem}
+  .exp-item{grid-template-columns:1fr;gap:0.2rem}
+  footer{padding:1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-name" onclick="showPage('home')">Anita Nursi</div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home');scrollTo(0,0)">Home</a></li>
+    <li><a onclick="showPage('home');setTimeout(()=>document.getElementById('projects-section').scrollIntoView({behavior:'smooth'}),50)">Projects</a></li>
+    <li><a onclick="showPage('home');setTimeout(()=>document.getElementById('experience-section').scrollIntoView({behavior:'smooth'}),50)">Experience</a></li>
+    <li><a onclick="showPage('home');setTimeout(()=>document.getElementById('contact-section').scrollIntoView({behavior:'smooth'}),50)">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Open to new opportunities · Padang, Indonesia</div>
+    <h1>Anita Nursi —<br><em>AI Data Specialist</em><br>& Mobile Developer</h1>
+    <p class="hero-bio">Informatics graduate with 3+ years of international AI freelance experience in data annotation, quality control, and machine learning training data. Passionate about mobile development and AI-driven technology.</p>
+    <div class="hero-chips">
+      <span class="chip">GPA 3.73 / 4.00</span>
+      <span class="chip">Flutter · React · Python</span>
+      <span class="chip">English · Bahasa Indonesia</span>
+      <span class="chip">Universitas Negeri Padang</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-solid" href="mailto:anitanursy@gmail.com">Get in Touch</a>
+      <a class="btn btn-outline" href="https://anitanursi.github.io/developer-portfolio/" target="_blank">GitHub Portfolio ↗</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ABOUT 
+  <section>
+    <p class="sec-eyebrow">About</p>
+    <p class="sec-title">Building quality AI data &amp; clean mobile experiences.</p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Years AI freelance</div></div>
+      <div class="stat"><div class="stat-n">5,000+</div><div class="stat-l">Minutes annotated</div></div>
+      <div class="stat"><div class="stat-n">3.73</div><div class="stat-l">GPA / 4.00</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Certifications</div></div>
+    </div>
+    <p style="font-size:0.92rem;color:#666;line-height:1.9;max-width:640px">
+      I graduated from Universitas Negeri Padang in Computer Science – Informatics. Over the past three years I have contributed to international AI projects with Telus International and Atlas Capture, annotating thousands of minutes of video and images for machine learning pipelines. Alongside my AI work, I built a gamified mobile vocabulary app as my thesis and completed a full-stack web development program. I am most energized when data quality and creative engineering intersect.
+    </p>
+  </section>
+-->
+
+  <hr>
+
+  <!-- PROJECTS → CATEGORY GRID -->
+  <section id="projects-section">
+    <p class="sec-eyebrow">Projects</p>
+    <p class="sec-title">Browse by category.</p>
+    <div class="cat-grid">
+
+      <div class="cat-card" onclick="showDetail('ai')">
+        <div class="cat-icon" style="background:#EEF4FF">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4f8ef7" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div>
+          <div class="cat-name">Data Annotations</div>
+          <div class="cat-count">4 projects</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+      <div class="cat-card" onclick="showDetail('design')">
+        <div class="cat-icon" style="background:#FFF0F6">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e0619a" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div>
+          <div class="cat-name">Social Media Design</div>
+          <div class="cat-count">2 projects</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+      <div class="cat-card" onclick="showDetail('uiux')">
+        <div class="cat-icon" style="background:#F5F0FF">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9b6ef3" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div>
+          <div class="cat-name">UI/UX Design</div>
+          <div class="cat-count">1 project</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+      <div class="cat-card" onclick="showDetail('dev')">
+        <div class="cat-icon" style="background:#EDFAF4">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2bbf8a" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div>
+          <div class="cat-name">Mobile &amp; Web Development</div>
+          <div class="cat-count">2 projects</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+      <div class="cat-card" onclick="showDetail('cert')">
+        <div class="cat-icon" style="background:#FFF8EE">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0a040" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div>
+          <div class="cat-name">Certificates</div>
+          <div class="cat-count">4 certificates</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- EXPERIENCE -->
+  <section id="experience-section">
+    <p class="sec-eyebrow">Experience</p>
+    <p class="sec-title">Professional background.</p>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-date">Feb 2026 – Present</div>
+        <div><div class="exp-role">Disputer / Quality Control Inspector</div><div class="exp-co">Atlas Capture</div><div class="exp-desc">Reviewed and evaluated annotation results by comparing multiple labels, determining correctness, and ensuring all final labels met project quality standards for AI training data.</div></div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Dec 2025 – Present</div>
+        <div><div class="exp-role">Labeler</div><div class="exp-co">Atlas Capture</div><div class="exp-desc">Annotated over 5,000 minutes of English video footage by labeling human actions and activities based on detailed project guidelines to support AI model development.</div></div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Sep 2025 – Present</div>
+        <div><div class="exp-role">Freelance Rater</div><div class="exp-co">Telus Digital – Project Sonic</div><div class="exp-desc">Evaluating and annotating data per project guidelines. Conducting quality assessments to ensure accuracy and relevance of outputs supporting machine learning development.</div></div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">Aug – Oct 2024</div>
+        <div><div class="exp-role">Intern – Electronic Facility & IT Division</div><div class="exp-co">InJourney Minangkabau International Airport</div><div class="exp-desc">Preventive and corrective maintenance on airport electronic equipment including X-Ray machines, CCTV, FIDS, Fire Alarm, and PABX infrastructure.</div></div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">2023 – 2024</div>
+        <div><div class="exp-role">Freelance Rater</div><div class="exp-co">Telus International AI – Photo SGT Project Indonesia</div><div class="exp-desc">Annotated 1,000+ photos and videos from Google Photos to support machine learning model development, ensuring data quality and relevance.</div></div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-date">2022 – 2023</div>
+        <div><div class="exp-role">Freelancer – Community Surfer</div><div class="exp-co">Telus International AI</div><div class="exp-desc">Search evaluation and data annotation to test and refine Microsoft ML models — query analysis, image labeling, text/audio annotation.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- SKILLS -->
+  <section>
+    <p class="sec-eyebrow">Skills</p>
+    <p class="sec-title">Technologies & tools.</p>
+    <div class="skills-grid">
+      <div><div class="sg-title">Languages</div><div class="sp">Python</div><div class="sp">Kotlin · Dart</div><div class="sp">Java</div><div class="sp">JavaScript</div><div class="sp">C / C++</div><div class="sp">SQL</div><div class="sp">HTML / CSS</div></div>
+      <div><div class="sg-title">Frameworks</div><div class="sp">Flutter</div><div class="sp">React</div><div class="sp">Node.js</div><div class="sp">Laravel</div><div class="sp">Firebase</div></div>
+      <div><div class="sg-title">Tools & Design</div><div class="sp">Figma</div><div class="sp">Canva</div><div class="sp">Notion</div><div class="sp">Draw.io</div><div class="sp">Microsoft Office</div><div class="sp">MikroTik (MTCNA)</div></div>
+      <div><div class="sg-title">Soft Skills</div><div class="sp">Team Collaboration</div><div class="sp">Time Management</div><div class="sp">Problem Solving</div><div class="sp">Debugging & Analysis</div></div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- EDUCATION & CERTS -->
+  <section>
+    <p class="sec-eyebrow">Education & Certifications</p>
+    <p class="sec-title">Academic background.</p>
+    <div style="border:1px solid #ebebeb;border-radius:14px;padding:1.5rem 1.75rem;margin-bottom:2rem">
+      <div style="font-size:0.98rem;font-weight:500;color:#1a1a1a">Universitas Negeri Padang</div>
+      <div style="font-size:0.8rem;color:#aaa;margin:3px 0 10px">B.Sc. Computer Science – Informatics · 2021–2025 · GPA 3.73 / 4.00</div>
+      <div style="font-size:0.8rem;color:#666;background:#fafafa;padding:0.75rem 1rem;border-radius:8px;border-left:3px solid #e0e0e0;line-height:1.7">
+        Thesis: "A Mobile Vocabulary Learning App for Engineering Contexts: Gamification, Self-Directed Learning, and User Progress Tracking"
+      </div>
+    </div>
+    <div class="cert-list">
+      <div class="cert-item"><div class="cert-yr">2025</div><div><div class="cert-name">Web Development with Node.js and React</div><div class="cert-org">BPVP Padang</div></div></div>
+      <div class="cert-item"><div class="cert-yr">2023</div><div><div class="cert-name">Android Java for Mobile Developer — Best Student</div><div class="cert-org">Kampus Merdeka × Hacktiv8</div></div></div>
+      <div class="cert-item"><div class="cert-yr">2023</div><div><div class="cert-name">Java Fundamental & Java Programming</div><div class="cert-org">Digital Talent Scholarship</div></div></div>
+      <div class="cert-item"><div class="cert-yr">2023</div><div><div class="cert-name">MikroTik Certified Network Associate (MTCNA)</div><div class="cert-org">MikroTik</div></div></div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- CONTACT -->
+  <section id="contact-section">
+    <p class="sec-eyebrow">Contact</p>
+    <p class="sec-title">Let's connect.</p>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:anitanursy@gmail.com"><div class="cc-lbl">Email</div><div class="cc-val">anitanursy@gmail.com</div></a>
+      <a class="contact-card" href="tel:+6285156904272"><div class="cc-lbl">WhatsApp / Phone</div><div class="cc-val">+62 851-5690-4272</div></a>
+      <a class="contact-card" href="https://s.id/notionportofolioanita" target="_blank"><div class="cc-lbl">Notion Portfolio</div><div class="cc-val">s.id/notionportofolioanita ↗</div></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Anita Nursi · Padang, Indonesia</p>
+    <p>Informatics Graduate · AI Data Specialist · Mobile Developer</p>
+  </footer>
+
+</div><!-- end page-home -->
+
+
+<!-- ═══════════════════════════════════════════
+     DETAIL PAGES (one per category)
+════════════════════════════════════════════ -->
+
+<!-- DATA ANNOTATIONS -->
+<div id="page-ai" class="page">
+  <div class="detail-header">
+    <button class="back-btn" onclick="showPage('home')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back
+    </button>
+    <div class="detail-header-info">
+      <div class="detail-cat-title">Data Annotations</div>
+      <div class="detail-cat-sub">AI training data · image & video labeling · quality control</div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <!-- REPLACE src WITH YOUR IMAGE URL -->
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Add image</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Video Action Labeling – Atlas Capture</div>
+          <div class="proj-desc">Annotated 5,000+ minutes of English video footage by labeling human actions and activities per detailed project guidelines to support AI model training.</div>
+          <div class="proj-tags"><span class="ptag">Video Annotation</span><span class="ptag">Action Recognition</span><span class="ptag">ML Training Data</span></div>
+          <!-- REPLACE href WITH YOUR PDF URL -->
+          <!-- <a class="proj-pdf-link" href="YOUR_PDF_URL" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            View Certificate / PDF
+          </a> -->
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Add image</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">QC Inspector – Atlas Capture</div>
+          <div class="proj-desc">Reviewed and evaluated annotation results by comparing multiple labels, determining correctness, and ensuring all final labels met quality standards.</div>
+          <div class="proj-tags"><span class="ptag">QA/QC</span><span class="ptag">Label Verification</span><span class="ptag">Dispute Resolution</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Add image</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Google Photos Annotation – Telus International</div>
+          <div class="proj-desc">Annotated 1,000+ personal photos and videos from Google Photos to support machine learning model development.</div>
+          <div class="proj-tags"><span class="ptag">Image Labeling</span><span class="ptag">Content Review</span><span class="ptag">Google Photos</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Add image</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Search Evaluation – Telus / Microsoft</div>
+          <div class="proj-desc">Search evaluation and data annotation to test and refine Microsoft ML models. Included query analysis, image labeling, and text/audio annotation.</div>
+          <div class="proj-tags"><span class="ptag">Search Rating</span><span class="ptag">Audio Annotation</span><span class="ptag">Microsoft AI</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
+</div>
+
+<!-- SOCIAL MEDIA DESIGN -->
+<div id="page-design" class="page">
+  <div class="detail-header">
+    <button class="back-btn" onclick="showPage('home')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back
+    </button>
+    <div class="detail-header-info">
+      <div class="detail-cat-title">Social Media Design</div>
+      <div class="detail-cat-sub">Canva · infographics · content planning · photography</div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <!-- REPLACE src WITH YOUR DESIGN IMAGE URL e.g. https://i.imgur.com/xxx.jpg -->
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Add design screenshot</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Infokom Division – Social Media Content</div>
+          <div class="proj-desc">Created visually appealing presentations, infographics, and multimedia content for social media. Managed posting schedules and documented activities through photography.</div>
+          <div class="proj-tags"><span class="ptag">Canva</span><span class="ptag">Infographic</span><span class="ptag">Content Planning</span><span class="ptag">Photography</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Add design screenshot</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Tabihita Project – Education Dept. Communications</div>
+          <div class="proj-desc">Managed administrative communications and crafted visual materials to support the department's social media presence and outreach during community service programs.</div>
+          <div class="proj-tags"><span class="ptag">Canva</span><span class="ptag">Event Documentation</span><span class="ptag">Communication</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
+</div>
+
+<!-- UI/UX DESIGN -->
+<div id="page-uiux" class="page">
+  <div class="detail-header">
+    <button class="back-btn" onclick="showPage('home')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back
+    </button>
+    <div class="detail-header-info">
+      <div class="detail-cat-title">UI/UX Design</div>
+      <div class="detail-cat-sub">Figma · mobile UI · user flows · prototyping</div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <!-- REPLACE src WITH YOUR FIGMA SCREENSHOT URL -->
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Add Figma screenshot</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">VocabLearn App – UI/UX Design</div>
+          <div class="proj-desc">Designed the full user interface for a gamified mobile vocabulary app, including onboarding flows, progress tracking screens, and quiz interaction patterns using Figma.</div>
+          <div class="proj-tags"><span class="ptag">Figma</span><span class="ptag">Mobile UI</span><span class="ptag">Gamification</span><span class="ptag">Prototyping</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
+</div>
+
+<!-- MOBILE & WEB DEV -->
+<div id="page-dev" class="page">
+  <div class="detail-header">
+    <button class="back-btn" onclick="showPage('home')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back
+    </button>
+    <div class="detail-header-info">
+      <div class="detail-cat-title">Mobile & Web Development</div>
+      <div class="detail-cat-sub">Flutter · React · Node.js · Firebase</div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <!-- REPLACE src WITH APP SCREENSHOT URL -->
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Add app screenshot</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">VocabLearn – Mobile App (Thesis)</div>
+          <div class="proj-desc">Flutter mobile app for engineering vocabulary learning with gamification, self-directed learning modules, and user progress tracking. Final thesis project at UNP.</div>
+          <div class="proj-tags"><span class="ptag">Flutter</span><span class="ptag">Dart</span><span class="ptag">Firebase</span><span class="ptag">Kotlin</span></div>
+          <!-- REPLACE href WITH YOUR PDF/REPORT URL -->
+          <!-- <a class="proj-pdf-link" href="YOUR_THESIS_PDF_URL" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            View Thesis PDF
+          </a> -->
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Add screenshot</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Developer Portfolio Website</div>
+          <div class="proj-desc">Personal portfolio built with React and Node.js, hosted on GitHub Pages. Showcases projects, skills, and professional experience.</div>
+          <div class="proj-tags"><span class="ptag">React</span><span class="ptag">Node.js</span><span class="ptag">GitHub Pages</span></div>
+          <a class="proj-pdf-link" href="https://anitanursi.github.io/developer-portfolio/" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Live Site
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
+</div>
+
+<!-- CERTIFICATES -->
+<div id="page-cert" class="page">
+  <div class="detail-header">
+    <button class="back-btn" onclick="showPage('home')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back
+    </button>
+    <div class="detail-header-info">
+      <div class="detail-cat-title">Certificates</div>
+      <div class="detail-cat-sub">Professional certifications & training programs</div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <!-- REPLACE src WITH CERTIFICATE IMAGE URL -->
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>Add certificate image</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Android Java for Mobile Developer — Best Student</div>
+          <div class="proj-desc">Intensive independent study at Hacktiv8 via Kampus Merdeka. Achieved Best Student recognition for outstanding performance in Android development.</div>
+          <div class="proj-tags"><span class="ptag">Java</span><span class="ptag">Android</span><span class="ptag">Hacktiv8</span><span class="ptag">Best Student · 2023</span></div>
+          <!-- <a class="proj-pdf-link" href="YOUR_CERT_PDF" target="_blank">View Certificate PDF</a> -->
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <img src="https://drive.google.com/file/d/17nWNwLnHO_7GDzy0CgG5y9mffyrsTv6y/view?usp=drivesdk" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">MikroTik Certified Network Associate (MTCNA)</div>
+          <div class="proj-desc">Official MikroTik certification covering network configuration, routing, firewall, and wireless setup through hands-on practical examination.</div>
+          <div class="proj-tags"><span class="ptag">MikroTik</span><span class="ptag">Networking</span><span class="ptag">MTCNA · 2023</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>Add certificate image</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Web Development with Node.js and React</div>
+          <div class="proj-desc">Full-stack web development training covering Node.js backend and React frontend, completed at BPVP Padang.</div>
+          <div class="proj-tags"><span class="ptag">Node.js</span><span class="ptag">React</span><span class="ptag">BPVP Padang · 2025</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media">
+          <div class="proj-media-placeholder">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            <span>Add certificate image</span>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Java Fundamental & Java Programming</div>
+          <div class="proj-desc">Comprehensive Java training covering core fundamentals and object-oriented programming through Digital Talent Scholarship program.</div>
+          <div class="proj-tags"><span class="ptag">Java</span><span class="ptag">OOP</span><span class="ptag">Digital Talent · 2023</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function showDetail(cat) {
+  showPage(cat);
+}
+</script>
+</body>
+</html>
