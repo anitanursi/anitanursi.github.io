@@ -286,8 +286,19 @@ footer p{font-size:0.76rem;color:#bbb}
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0a040" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
         </div>
         <div>
-          <div class="cat-name">Certificates</div>
+          <div class="cat-name">Certifications and Trainings</div>
           <div class="cat-count">4 certificates</div>
+        </div>
+        <div class="cat-arrow">→</div>
+      </div>
+      
+      <div class="cat-card" onclick="showDetail('achieve')">
+        <div class="cat-icon" style="background:#FFF8EE">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0a040" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div>
+          <div class="cat-name">Achievements & Organizations</div>
+          <!-- <div class="cat-count">4 certificates</div> -->
         </div>
         <div class="cat-arrow">→</div>
       </div>
@@ -660,13 +671,9 @@ footer p{font-size:0.76rem;color:#bbb}
     <div class="proj-grid">
 
       <div class="proj-card">
-        <div class="proj-media">
-          <!-- REPLACE src WITH CERTIFICATE IMAGE URL -->
-          <div class="proj-media-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-            <span>Add certificate image</span>
-          </div>
-        </div>
+<div class="proj-media" data-pdf="pdf/msib.pdf">
+    <img src="pdf/msib.pdf" style="width:100%;height:100%;object-fit:cover">
+  </div>
         <div class="proj-body">
           <div class="proj-title">Android Java for Mobile Developer — Best Student</div>
           <div class="proj-desc">Intensive independent study at Hacktiv8 via Kampus Merdeka. Achieved Best Student recognition for outstanding performance in Android development.</div>
@@ -685,12 +692,9 @@ footer p{font-size:0.76rem;color:#bbb}
   </div>
 </div>
       <div class="proj-card">
-        <div class="proj-media">
-          <div class="proj-media-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-            <span>Add certificate image</span>
-          </div>
-        </div>
+        <div class="proj-media" data-pdf="pdf/web.pdf">
+    <img src="pdf/web.pdf" style="width:100%;height:100%;object-fit:cover">
+  </div>
         <div class="proj-body">
           <div class="proj-title">Web Development with Node.js and React</div>
           <div class="proj-desc">Full-stack web development training covering Node.js backend and React frontend, completed at BPVP Padang.</div>
@@ -706,6 +710,125 @@ footer p{font-size:0.76rem;color:#bbb}
           <div class="proj-title">Java Fundamental & Java Programming</div>
           <div class="proj-desc">Comprehensive Java training covering core fundamentals and object-oriented programming through Digital Talent Scholarship program.</div>
           <div class="proj-tags"><span class="ptag">Java</span><span class="ptag">OOP</span><span class="ptag">Digital Talent · 2023</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer><p>© 2025 Anita Nursi</p><p style="cursor:pointer;color:#aaa" onclick="showPage('home')">← Back to Portfolio</p></footer>
+</div>
+
+<!-- ACHIEVEMENTS & ORGANIZATIONS -->
+<div id="page-achieve" class="page">
+  <div class="detail-header">
+    <button class="back-btn" onclick="showPage('home')">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back
+    </button>
+    <div class="detail-header-info">
+      <div class="detail-cat-title">Achievements & Organizations</div>
+      <div class="detail-cat-sub">competitions · organizations · internship · activities</div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-media" data-pdf="pdf/sayur.pdf">
+          <img src="pdf/sayur.pdf" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Awardee of Program Mahasiswa Wirausaha (PMW) "Sayuricious"</div>
+          <div class="proj-desc">2024</div>
+          <div class="proj-tags"><span class="ptag">Tag 1</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media" data-pdf="pdf/achieve2.pdf">
+          <img src="pdf/achieve2.pdf" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Card 2</div>
+          <div class="proj-desc">About 2</div>
+          <div class="proj-tags"><span class="ptag">Tag 2</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media" data-pdf="pdf/achieve3.pdf">
+          <img src="pdf/achieve3.pdf" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Card 3</div>
+          <div class="proj-desc">About 3</div>
+          <div class="proj-tags"><span class="ptag">Tag 3</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media" data-pdf="pdf/achieve4.pdf">
+          <img src="pdf/achieve4.pdf" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Card 4</div>
+          <div class="proj-desc">About 4</div>
+          <div class="proj-tags"><span class="ptag">Tag 4</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media" data-pdf="pdf/achieve5.pdf">
+          <img src="pdf/achieve5.pdf" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Card 5</div>
+          <div class="proj-desc">About 5</div>
+          <div class="proj-tags"><span class="ptag">Tag 5</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media" data-pdf="pdf/achieve6.pdf">
+          <img src="pdf/achieve6.pdf" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Card 6</div>
+          <div class="proj-desc">About 6</div>
+          <div class="proj-tags"><span class="ptag">Tag 6</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media" data-pdf="pdf/achieve7.pdf">
+          <img src="pdf/achieve7.pdf" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Card 7</div>
+          <div class="proj-desc">About 7</div>
+          <div class="proj-tags"><span class="ptag">Tag 7</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media" data-pdf="pdf/achieve8.pdf">
+          <img src="pdf/achieve8.pdf" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Card 8</div>
+          <div class="proj-desc">About 8</div>
+          <div class="proj-tags"><span class="ptag">Tag 8</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-media" data-pdf="pdf/achieve9.pdf">
+          <img src="pdf/achieve9.pdf" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Card 9</div>
+          <div class="proj-desc">About 9</div>
+          <div class="proj-tags"><span class="ptag">Tag 9</span></div>
         </div>
       </div>
 
